@@ -1,31 +1,47 @@
 # Statistiques Descriptives — R2.08
+```markdown
+# Statistiques Descriptives — R2.08
 
 ## Description
 
-Supports pour le cours de Statistiques Descriptives : notions de séries univariées et bivariées, représentation graphique, mesures de position et de dispersion.
+Ce dossier contient les supports du cours de Statistiques Descriptives (S2). Il couvre les séries univariées et bivariées, mesures de position et dispersion, représentations graphiques, corrélation et régression simple.
 
 ## Objectifs pédagogiques
 
-- Calculer et interpréter moyenne, médiane, variance, écart-type
-- Produire et analyser des graphiques (histogrammes, boîtes à moustaches, nuages)
-- Appliquer la corrélation et la régression linéaire simple
+- Savoir calculer et interpréter les mesures de tendance centrale : moyenne, médiane, mode.
+- Calculer et interpréter les mesures de dispersion : variance, écart-type, étendue, quartiles.
+- Construire et lire des représentations graphiques : histogramme, boîte à moustaches, nuage de points.
+- Comprendre et appliquer la corrélation et la régression linéaire simple (estimation, interprétation du coefficient de corrélation r et du coefficient de détermination R^2).
 
-## Organisation
+## Plan de cours (extrait)
+1. Rappels et vocabulaire statistique
+2. Séries univariées : distribution, mesures de position et dispersion
+3. Représentations graphiques et interprétation
+4. Séries bivariées : covariance et corrélation
+5. Régression linéaire simple : estimation et tests
+6. Applications pratiques (TP/SAE)
 
-- `COURS/` — chapitres organisés par thème
-- `exos/` — exercices et corrigés (Excel / PDF)
-- `SAE204/` — projet d'analyse de données
+## Organisation du dossier
+- `COURS/` — chapitres et polycopiés.
+- `exos/` — exercices et corrigés (formats Excel, PDF).
+- `SAE204/` — projets applicatifs et consignes.
 
-## Ressources utiles
+## Exemples de formules (Excel)
+- Moyenne : `=MOYENNE(A1:A10)`
+- Médiane : `=MEDIANE(A1:A10)`
+- Écart-type : `=ECARTYPE.STANDARD(A1:A10)`
+- Corrélation : `=CORREL(A1:A10,B1:B10)`
 
-- Formules Excel incluses dans les fichiers README et les feuilles de calcul
-- Exemple rapide : Moyenne → `=MOYENNE(A1:A10)`, Corrélation → `=CORREL(A1:A10,B1:B10)`
+## Travaux recommandés
+- Faire les exercices en Excel pour visualiser rapidement.
+- Reproduire les analyses en Python (pandas, matplotlib / seaborn) ou R pour automatiser et documenter.
 
-## Conseils
-
-- Travailler les exercices dans Excel ou Google Sheets pour visualiser rapidement les résultats.
-- Utiliser Python/R pour analyses plus avancées si nécessaire.
+## Ressources complémentaires
+- Documentation pandas : https://pandas.pydata.org/
+- Matplotlib / Seaborn pour visualisation
+- Cours et polycopiés fournis dans ce répertoire
 
 ---
 
-**Dernière mise à jour :** Septembre 2025
+_Dernière mise à jour :_ Septembre 2025
+```

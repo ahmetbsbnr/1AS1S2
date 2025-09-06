@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Archives and build artifacts (optional)
+*.zip
+*.tar.gz
+dist/
+build/
+
+# Environment files
+.env
