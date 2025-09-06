@@ -1,0 +1,183 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .SFNS-Bold;\f1\fnil\fcharset0 .SFNS-Regular;}
+{\colortbl;\red255\green255\blue255;\red14\green14\blue14;}
+{\*\expandedcolortbl;;\cssrgb\c6700\c6700\c6700;}
+\margl1440\margr1440\vieww16860\viewh17340\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\b\fs34 \cf2 Script 1 : Afficher les informations utilisateur et syst\'e8me
+\f1\b0\fs32 \
+\
+#!/bin/bash\
+# Ce script affiche des informations utilisateur et syst\'e8me\
+echo "Utilisateur : $(whoami)"\
+echo "Date actuelle : $(date '+%d/%m/%Y \'e0 %H:%M')"\
+echo "Temps \'e9coul\'e9 depuis le d\'e9marrage : $(uptime -p)"\
+\
+\
+\
+
+\f0\b\fs34 Script 2 : V\'e9rifier si un utilisateur est connect\'e9
+\f1\b0\fs32 \
+\
+#!/bin/bash\
+# Ce script v\'e9rifie si un utilisateur donn\'e9 est connect\'e9\
+\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <nom_utilisateur>"\
+    exit 1\
+fi\
+\
+if who | grep -w "$1" > /dev/null; then\
+    echo "L'utilisateur $1 est connect\'e9."\
+else\
+    echo "L'utilisateur $1 n'est pas connect\'e9."\
+fi\
+\
+\
+\
+
+\f0\b\fs34 Script 3 : Liste des fichiers d\'92un r\'e9pertoire
+\f1\b0\fs32 \
+\
+#!/bin/bash\
+# Ce script affiche les fichiers d'un r\'e9pertoire pass\'e9 en argument\
+\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <r\'e9pertoire>"\
+    exit 1\
+fi\
+\
+if [ -d "$1" ]; then\
+    echo "Voici les fichiers dans le r\'e9pertoire $1 :"\
+    ls "$1"\
+else\
+    echo "Le r\'e9pertoire $1 n'existe pas."\
+fi\
+\
+\
+\
+
+\f0\b\fs34 Script 4 : Calculer la factorielle d\'92un nombre
+\f1\b0\fs32 \
+\
+#!/bin/bash\
+# Ce script calcule la factorielle d'un nombre donn\'e9\
+\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <nombre>"\
+    exit 1\
+fi\
+\
+nombre=$1\
+fact=1\
+\
+for (( i=1; i<=nombre; i++ )); do\
+    fact=$((fact * i))\
+done\
+\
+echo "La factorielle de $nombre est : $fact"\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\b\fs34 \cf2 Script 5 : Archiver un r\'e9pertoire
+\f1\b0\fs32 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 \
+#!/bin/bash\
+# Ce script archive un r\'e9pertoire pass\'e9 en argument\
+\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <r\'e9pertoire>"\
+    exit 1\
+fi\
+\
+if [ -d "$1" ]; then\
+    archive_name="$1-$(date '+%Y%m%d').tar.gz"\
+    tar -czf "$archive_name" "$1"\
+    echo "Le r\'e9pertoire $1 a \'e9t\'e9 archiv\'e9 sous le nom $archive_name."\
+else\
+    echo "Le r\'e9pertoire $1 n'existe pas."\
+fi\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\b\fs34 \cf2 Script 6 : Comparer deux fichiers
+\f1\b0\fs32 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 \
+#!/bin/bash\
+# Ce script compare deux fichiers pass\'e9s en argument\
+\
+if [ $# -ne 2 ]; then\
+    echo "Usage : $0 <fichier1> <fichier2>"\
+    exit 1\
+fi\
+\
+if [ ! -f "$1" ] || [ ! -f "$2" ]; then\
+    echo "Les deux fichiers doivent exister."\
+    exit 1\
+fi\
+\
+if cmp -s "$1" "$2"; then\
+    echo "Les fichiers $1 et $2 sont identiques."\
+else\
+    echo "Les fichiers $1 et $2 sont diff\'e9rents."\
+fi\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\b\fs34 \cf2 Script 1 : Afficher des informations utilisateur et syst\'e8me
+\f1\b0\fs32 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 \
+#!/bin/bash\
+# Description : Ce script affiche des informations sur l'utilisateur courant,\
+# la date et le temps \'e9coul\'e9 depuis le d\'e9marrage du syst\'e8me.\
+\
+echo "Utilisateur : $(whoami)"\
+echo "Date actuelle : $(date '+%d/%m/%Y \'e0 %H:%M')"\
+echo "Temps \'e9coul\'e9 depuis le d\'e9marrage : $(uptime -p)"\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+
+\f0\b\fs34 \cf2 Script 2 : V\'e9rifier si un utilisateur est connect\'e9
+\f1\b0\fs32 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\sl324\slmult1\pardirnatural\partightenfactor0
+\cf2 \
+#!/bin/bash\
+# Description : Ce script v\'e9rifie si un utilisateur donn\'e9 est connect\'e9 au syst\'e8me.\
+# Usage : ./verif_utilisateur.sh <nom_utilisateur>\
+\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <nom_utilisateur>"\
+    exit 1\
+fi\
+\
+if who | grep -w "$1" > /dev/null; then\
+    echo "L'utilisateur $1 est connect\'e9."\
+else\
+    echo "L'utilisateur $1 n'est pas connect\'e9."\
+fi\
+\
+\
+\
+\
+\
+\
+\
+\
+}

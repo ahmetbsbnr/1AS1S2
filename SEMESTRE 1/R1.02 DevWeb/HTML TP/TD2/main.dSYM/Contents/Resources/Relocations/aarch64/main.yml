@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ahmetbasbunar/Documents/mes cours but info/HTML TP/TD2/main'
+relocations:     []
+...

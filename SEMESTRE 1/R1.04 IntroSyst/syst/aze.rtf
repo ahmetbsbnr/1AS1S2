@@ -1,0 +1,242 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Fiche M\'e9mo Bash - Pratique et R\'e9f\'e9rences\
+\
+## Commandes de Base\
+- **Afficher le r\'e9pertoire courant :**\
+  ```bash\
+  pwd\
+  ```\
+\
+- **Lister les fichiers et r\'e9pertoires :**\
+  ```bash\
+  ls\
+  ls -l   # Liste avec d\'e9tails\
+  ls -a   # Inclut les fichiers cach\'e9s\
+  ```\
+\
+- **Changer de r\'e9pertoire :**\
+  ```bash\
+  cd <nom_du_r\'e9pertoire>\
+  cd ..    # Revenir au r\'e9pertoire parent\
+  cd ~     # Aller au r\'e9pertoire utilisateur\
+  ```\
+\
+- **Copier des fichiers :**\
+  ```bash\
+  cp fichier_source fichier_destination\
+  ```\
+\
+- **Renommer/D\'e9placer des fichiers :**\
+  ```bash\
+  mv ancien_nom nouveau_nom\
+  ```\
+\
+- **Supprimer des fichiers ou des r\'e9pertoires :**\
+  ```bash\
+  rm fichier\
+  rm -r repertoire   # Supprimer un r\'e9pertoire\
+  ```\
+\
+- **Afficher le contenu d'un fichier :**\
+  ```bash\
+  cat fichier\
+  ```\
+\
+- **Afficher les dix derni\'e8res lignes d'un fichier :**\
+  ```bash\
+  tail fichier\
+  ```\
+\
+- **Rechercher un motif dans un fichier :**\
+  ```bash\
+  grep "motif" fichier\
+  ```\
+\
+---\
+\
+## Structures de Contr\'f4le dans les Scripts Bash\
+\
+### **Conditions :**\
+```bash\
+if [ condition ]; then\
+    commande\
+elif [ autre_condition ]; then\
+    autre_commande\
+else\
+    commande_par_d\'e9faut\
+fi\
+```\
+\
+- **Exemple :**\
+  ```bash\
+  if [ -f fichier.txt ]; then\
+      echo "Le fichier existe."\
+  else\
+      echo "Le fichier n'existe pas."\
+  fi\
+  ```\
+\
+### **Boucle For :**\
+```bash\
+for variable in liste; do\
+    commande\
+done\
+```\
+- **Exemple :**\
+  ```bash\
+  for i in \{1..5\}; do\
+      echo "Nombre : $i"\
+  done\
+  ```\
+\
+### **Boucle While :**\
+```bash\
+while [ condition ]; do\
+    commande\
+done\
+```\
+- **Exemple :**\
+  ```bash\
+  compteur=0\
+  while [ $compteur -lt 5 ]; do\
+      echo "Compteur : $compteur"\
+      compteur=$((compteur + 1))\
+  done\
+  ```\
+\
+---\
+\
+## Manipulation des Fichiers et R\'e9pertoires\
+\
+- **Tester l'existence d'un fichier :**\
+  ```bash\
+  if [ -f fichier ]; then\
+      echo "Le fichier existe."\
+  fi\
+  ```\
+\
+- **Tester l'existence d'un r\'e9pertoire :**\
+  ```bash\
+  if [ -d repertoire ]; then\
+      echo "Le r\'e9pertoire existe."\
+  fi\
+  ```\
+\
+- **V\'e9rifier si un fichier est vide :**\
+  ```bash\
+  if [ ! -s fichier ]; then\
+      echo "Le fichier est vide."\
+  fi\
+  ```\
+\
+---\
+\
+## Variables et Arguments dans les Scripts\
+\
+### **Variables :**\
+- D\'e9claration :\
+  ```bash\
+  nom_variable=valeur\
+  ```\
+\
+- Appel :\
+  ```bash\
+  echo $nom_variable\
+  ```\
+\
+### **Arguments :**\
+- **Nombre d'arguments pass\'e9s :** `$#`\
+- **Premier argument :** `$1`\
+- **Tous les arguments :** `$@`\
+\
+- **Exemple :**\
+  ```bash\
+  if [ $# -ne 2 ]; then\
+      echo "Erreur : Vous devez fournir 2 arguments."\
+      exit 1\
+  fi\
+  ```\
+\
+---\
+\
+## Scripts Utiles\
+\
+### **1. Afficher des Informations Utilisateur et Syst\'e8me**\
+```bash\
+#!/bin/bash\
+echo "Utilisateur : $(whoami)"\
+echo "Date : $(date '+%d/%m/%Y')"\
+echo "Temps de fonctionnement : $(uptime -p)"\
+```\
+\
+### **2. V\'e9rifier si un Utilisateur est Connect\'e9**\
+```bash\
+#!/bin/bash\
+if who | grep -w "$1" > /dev/null; then\
+    echo "L'utilisateur $1 est connect\'e9."\
+else\
+    echo "L'utilisateur $1 n'est pas connect\'e9."\
+fi\
+```\
+\
+### **3. Calculer la Factorielle d'un Nombre**\
+```bash\
+#!/bin/bash\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <nombre>"\
+    exit 1\
+fi\
+nombre=$1\
+fact=1\
+for (( i=1; i<=nombre; i++ )); do\
+    fact=$((fact * i))\
+done\
+echo "La factorielle de $nombre est : $fact"\
+```\
+\
+### **4. Cr\'e9er une Archive d'un R\'e9pertoire**\
+```bash\
+#!/bin/bash\
+if [ $# -ne 1 ]; then\
+    echo "Usage : $0 <r\'e9pertoire>"\
+    exit 1\
+fi\
+if [ -d "$1" ]; then\
+    archive="$1-$(date '+%Y%m%d').tar.gz"\
+    tar -czf "$archive" "$1"\
+    echo "Archive cr\'e9\'e9e : $archive"\
+else\
+    echo "Le r\'e9pertoire n'existe pas."\
+fi\
+```\
+\
+---\
+\
+## Trucs et Astuces\
+\
+- **Faire une pause dans un script :**\
+  ```bash\
+  read -p "Appuyez sur Entr\'e9e pour continuer..."\
+  ```\
+\
+- **Tester un script sans l'ex\'e9cuter :**\
+  ```bash\
+  bash -n nom_script.sh\
+  ```\
+\
+- **Afficher les commandes \'e9x\'e9cut\'e9es (mode debug) :**\
+  ```bash\
+  bash -x nom_script.sh\
+  ```\
+\
+---\
+\
+### Bonne chance pour votre examen ! Vous avez tout ce qu'il faut pour r\'e9ussir.\
+\
+}

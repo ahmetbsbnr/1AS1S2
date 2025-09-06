@@ -1,0 +1,58 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* Section title styling */
+section > h1 {
+    background-color: #586359; /* Dark gray */
+    color: #FAFAFA; /* Light gray */
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* Paragraph styling */
+section > p {
+    background-color: #E4E4A1; /* Light yellow */
+    color: #000; /* Black */
+    padding: 10px;
+    border-bottom: 2px solid #444; /* Border */
+}
+
+/* Article title styling */
+article > h1 {
+    background-color: #915C44; /* Dark brown */
+    color: #FAFAFA; /* Light gray */
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+/* Paragraphs within articles */
+article > p {
+    background-color: #915C44; /* Dark brown */
+    color: #FAFAFA; /* Light gray */
+    padding: 10px;
+}
+
+/* Div container styling */
+article > div {
+    background-color: #E4A594; /* Light brown */
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* Paragraphs within divs */
+article > div > p {
+    background-color: #D8C3A5; /* Beige */
+    color: #000; /* Black */
+    padding: 10px;
+}
+
+/* Footer styling */
+footer p {
+    background-color: #FAFAFA; /* Light gray */
+    color: #444; /* Dark gray */
+    padding: 10px;
+    font-size: 0.9em;
+}
